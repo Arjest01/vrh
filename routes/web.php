@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/register', [RegisterController::class, 'showRegistationForm'])->name('register');
 
 Route::get('/', [PostController::class, 'blog'])->name('blog');
 Route::get('/categories/{category}', [PostController::class, 'postsByCategory'])->name('posts.byCategory');
