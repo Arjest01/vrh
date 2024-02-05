@@ -50,7 +50,7 @@
                     class="md:hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                     tabindex="-1"
                 >
-                    <li><a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a></li>
+                    <li><a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a></li>
                     <li>
                         <a href="{{ route('register') }}" class="flex items-center px-4 py-2 font-semibold text-sm text-indigo-700 hover:bg-gray-100">
                             Inscription
@@ -61,7 +61,7 @@
                     </li>
                 </ul>
                 <ul class="hidden md:flex space-x-12 font-semibold">
-                    <li><a href="">Connexion</a></li>
+                    <li><a href="{{ route('login') }}">Connexion</a></li>
                     <li>
                         <a href="{{ route('register') }}" class="flex items-center group text-indigo-700">
                             Inscription
@@ -73,6 +73,21 @@
                 </ul>
             </nav>
         </header>
+
+        @if (session('status'))
+        <div class="mt-10 rounded-md bg-green-50 p-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm font-medium text-green-800">{{ session('status') }}</p>
+                </div>
+            </div>
+        </div>
+        @endif
 
         <main class="mt-10 md:mt-12 lg:mt-16">
             {{ $slot }}

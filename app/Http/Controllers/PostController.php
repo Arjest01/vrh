@@ -30,7 +30,7 @@ class PostController extends Controller
     protected function postsView(array $filters): View
     {
         return view('posts.index',[
-            'posts' => Post::filters($filters)->latest()->paginate(10), 
+            'posts' => Post::filters($filters)->latest()->paginate(10),
         ]);
     }
 
