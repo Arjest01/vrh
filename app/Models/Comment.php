@@ -14,6 +14,9 @@ class Comment extends Model
         'user'
     ];
 
+    //protected $fillable = ['content', 'post_id', 'user_id'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);
     }

@@ -25,8 +25,11 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::patch('/home', [HomeController::class, 'updatePassword']);
 
 Route::get('/', [PostController::class, 'blog'])->name('blog');
 Route::get('/categories/{category}', [PostController::class, 'postsByCategory'])->name('posts.byCategory');
 Route::get('/tags/{tag}', [PostController::class, 'postsByTag'])->name('posts.byTag');
 Route::get('/{post}', [PostController::class,'show'])->name('posts.show');
+
+Route::post('/{post}/comment', [PostController::class,'comment'])->name('posts.comment');

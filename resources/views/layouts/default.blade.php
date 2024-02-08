@@ -42,7 +42,7 @@
 
                 @auth
 
-                <img class="h-8 w-8 rounded-full" src="https://via.placeholder.com/120x120" alt="Image de profil">
+                <img class="h-8 w-8 rounded-full" src="{{ Gravatar::get(Auth::user()->email) }}" alt="Image de profil">
 
                 @else
                     

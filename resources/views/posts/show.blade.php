@@ -3,7 +3,7 @@
         <x-post :$post />
         
         @auth
-        <form action="" method="POST">
+        <form action="{{ route('posts.comment', ['post' => $post]) }}" method="POST">
             @csrf
             <div class="flex h-12">
                 <input class="w-full bg-slate-50 rounded-lg px-5 text-slate-900 focus:outline focus:outline-2 focus:outline-indigo-500" type="text" name="comment" placeholder="Quelque chose à rajouter ? 🎉" autocomplete="off">
@@ -22,7 +22,7 @@
         <div class="space-y-8">
             @foreach ($post->comments as $comment)
             <div class="flex bg-slate-50 p-6 rounded-lg">
-                <img class="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-full" src="https://via.placeholder.com/120x120" alt="Image de profil de {{ $comment->user->name }}">
+                <img class="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-full" src="{{ Gravatar::get($comment->user->email) }}" alt="Image de profil de {{ $comment->user->name }}">
                 <div class="ml-4 flex flex-col">
                     <div class="flex flex-col sm:flex-row sm:items-center">
                         <h2 class="font-bold text-slate-900 text-2xl">{{ $comment->user->name }}</h2>

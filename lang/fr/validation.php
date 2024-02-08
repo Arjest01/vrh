@@ -157,6 +157,7 @@ return [
         'birthday'                 => 'anniversaire',
         'body'                     => 'corps',
         'city'                     => 'ville',
+        'comment'                  => 'commentaire',
         'content'                  => 'contenu',
         'country'                  => 'pays',
         'created_at'               => 'créé à',
