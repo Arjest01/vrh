@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 
 class Select extends Component
 {
-    public bool $valueIsCollection; 
+    public bool $valueIsCollection;
 
     /**
      * Create a new component instance.
@@ -19,8 +19,8 @@ class Select extends Component
         public string $label,
         public Collection $list,
         public ?string $id = null,
-        public string $optionValues = 'id',
-        public string $optionTexts = 'name',
+        public string $optionsValues = 'id',
+        public string $optionsTexts = 'name',
         public mixed $value = null,
         public bool $multiple = false,
         public string $help = '',
@@ -30,12 +30,12 @@ class Select extends Component
         $this->handleValue();
     }
 
-    protected function handleValue(): void{
+    protected function handleValue(): void
+    {
         $this->value = old($this->name) ?? $this->value;
-        if(is_array($this->value)){
+        if (is_array($this->value)) {
             $this->value = collect($this->value);
         }
-
         $this->valueIsCollection = $this->value instanceof Collection;
     }
 

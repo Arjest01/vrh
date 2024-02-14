@@ -17,12 +17,11 @@ class Input extends Component
         public string $label,
         public ?string $value = null,
         public ?string $id = null,
-        public string $type = 'text',                
-        public string $help = '',                
+        public string $type = 'text',
+        public string $help = '',
     )
     {
         $this->id ??= $this->name;
-
     }
 
     public function isImage(): bool

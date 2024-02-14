@@ -15,10 +15,10 @@
         >
             @foreach ($list as $item)
             <option
-                value="{{ $item->$optionValues }}"
-                @selected($valueIsCollection ? $value->contains($item->$optionValues) : $item->$optionValues == $value)
+                value="{{ $item->$optionsValues }}"
+                @selected($valueIsCollection ? $value->contains($item->$optionsValues) : $item->$optionsValues == $value)
             >
-                {{ $item->$optionTexts }}
+                {{ $item->$optionsTexts }}
             </option>
             @endforeach
         </select>

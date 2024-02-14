@@ -25,7 +25,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title'     => ['required', 'string', 'between:3,255'],
-            'slug'      => ['required', 'string', 'between:3,255', 'unique:posts'],
+            'slug'      => ['required', 'string', 'between:3,255', Rule::unique('posts')->ignore($this->post)],
             'content'   => ['required', 'string', 'min:10'],
             'thumbnail' => [Rule::requiredIf($request->isMethod('post')), 'image'],
             'category_id' => ['required', 'integer', 'exists:categories,id'],
